@@ -1,0 +1,26 @@
+# views.py
+
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import User  # Import the User model if defined
+
+# Import other necessary modules and classes
+
+# Define the view function to initiate chats within groups
+def initiate_chat_view(request):
+    # Assume 'grouped_users' is already defined and populated in your Django application
+    # It should contain the grouped users based on their selected categories
+    grouped_users = {
+        "Sports": [User("user1", "password1", ["Sports"]), User("user2", "password2", ["Sports"])],
+        "Gaming": [User("user3", "password3", ["Gaming"]), User("user4", "password4", ["Gaming"])]
+    }
+
+    # Assuming 'user' is the current user
+    user = User("current_user", "password", ["Sports"])
+
+    if request.method == 'POST':
+        chat_message = initiate_chat(user, grouped_users)
+        if chat_message:
+            return HttpResponse(f"Chat initiated successfully! Message: {chat_message.message}")
+
+    return render(request, 'initiate_chat.html')

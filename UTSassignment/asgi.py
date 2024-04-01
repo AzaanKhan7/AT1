@@ -1,5 +1,5 @@
 """
-ASGI config for at1 project.
+ASGI config for UTSassignment project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
