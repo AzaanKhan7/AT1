@@ -1,3 +1,5 @@
+import random
+
 # Data Structure
 class User:
     def __init__(self, username, password, categories=None):
@@ -5,7 +7,7 @@ class User:
         self.password = password
         self.categories = categories if categories else []
 
-# Subprogram for creating a profile
+# Subprogram
 def create_profile():
     print("Create a Profile:")
     username = input("Enter username: ")
@@ -40,28 +42,11 @@ def create_profile():
     print("Selected Categories:")
     for category in user.categories:
         print(f"- {category}")
-    return user
-
-# Subprogram to group users by category
-def group_users_by_category(users):
-    grouped_users = {}
-    for user in users:
-        for category in user.categories:
-            if category not in grouped_users:
-                grouped_users[category] = []
-            grouped_users[category].append(user)
-    return grouped_users
+    print("Thank you! Your profile has been created.")
 
 # Main program
 def main():
-    users = []
-    users.append(create_profile())
-    grouped_users = group_users_by_category(users)
-    print("\nUsers Grouped by Category:")
-    for category, users_in_category in grouped_users.items():
-        print(f"\nCategory: {category}")
-        for user in users_in_category:
-            print(f"- Username: {user.username}")
+    create_profile()
 
 if __name__ == "__main__":
-    main()
+    main() 
