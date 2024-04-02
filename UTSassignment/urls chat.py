@@ -1,8 +1,7 @@
-from django.urls import path, include
-from .views import send_message_view, index  # Import the index view
+from django.urls import path
+from .views import send_message_view, index
 
 urlpatterns = [
-    path('send-message/', send_message_view, name='send_message'),
-    path("", index, name="index"),  # Add the index view URL pattern
-    path('hello/', include("hello.urls")),
+    path('', index, name='index'),  # URL pattern for displaying the chat interface
+    path('send-message/', send_message_view, name='send_message'),  # URL pattern for sending messages
 ]
